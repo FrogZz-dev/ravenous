@@ -14,7 +14,6 @@ class SearchBar extends Component {
         this.handleTermChange = this.handleTermChange.bind(this);
         this.handleLocationChange = this.handleLocationChange.bind(this);
         this.handleSearch = this.handleSearch.bind(this);
-        this.handleEnterSearch = this.handleEnterSearch.bind(this);
 
         this.sortByOptions = {
             'Best Match': 'best_match',
@@ -28,7 +27,6 @@ class SearchBar extends Component {
         this.setState({
             sortBy: sortByOption
         });
-        this.props.submitSearch(this.state.term, this.state.location, this.state.sortBy);
     }
 
     handleTermChange(event) {
@@ -48,12 +46,6 @@ class SearchBar extends Component {
         event.preventDefault();
     }
 
-    handleEnterSearch(event) {
-        if (event.key === 'Enter') {
-            this.props.submitSearch(this.state.term, this.state.location, this.state.sortBy);
-        }
-    }
-
     renderSortByOption() {
         return Object.keys(this.sortByOptions).map(key => {
             let sortValue = this.sortByOptions[key];
@@ -64,7 +56,7 @@ class SearchBar extends Component {
 
     render() {
         return (
-            <div onKeyPress={this.handleEnterSearch} className="SearchBar">
+            <div className="SearchBar">
                 <div className="SearchBar-sort-options">
                     <ul>
                         {this.renderSortByOption()}

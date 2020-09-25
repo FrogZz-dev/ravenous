@@ -9,7 +9,7 @@ class Business extends Component {
         return (
             <div className="Business">
                 <div className="image-container">
-                    <a href={business.websiteUrl} target='_blank' rel="noopener noreferrer"><img src={business.imageSrc} alt='' /></a>
+                    <img src={business.imageSrc} alt='' />
                 </div>
                 <h2>{business.name}</h2>
                 <div className="Business-information">
